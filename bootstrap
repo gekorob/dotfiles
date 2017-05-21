@@ -1,0 +1,25 @@
+#!/bin/sh
+
+BASEPATH="$HOME/.dotfiles"
+
+if [ -e $BASEPATH/.git ]; then
+    cd $BASEPATH && git pull
+else
+    git clone https://github.com/gekorob/dotfiles.git $BASEPATH
+fi
+
+#Global conf for ssh
+if grep -xqFe "Host *" $HOME/.ssh/config
+  then
+    echo "~/.ssh/config general section already present, leaving untouched"
+  else
+    vi +'0r ssh_config_general|wq' $HOME/.ssh/config
+fi
+
+mkdir -p $HOME/.config/fontconfig
+ln -sf $BASEPATH/fonts.conf $HOME/.config/fontconfig/fonts.conf
+mkdir -p $HOME/.config/powerline
+ln -sf $BASEPATH/powerline-config.json $HOME/.config/powerline/config.json
+ln -sf $BASEPATH/gemrc $HOME/.gemrc
+ln -sf $BASEPATH/gitconfig $HOME/.gitconfig
+ln -sf $BASEPATH/gitignore $HOME/.gitignore
