@@ -9,6 +9,8 @@ else
 fi
 
 #Global conf for ssh
+mkdir -p $HOME/.ssh
+
 if grep -xqFe "Host *" $HOME/.ssh/config
   then
     echo "~/.ssh/config general section already present, leaving untouched"
