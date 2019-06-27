@@ -13,9 +13,12 @@
   df = diff --word-diff --color-words:q  dc = diff --word-diff --color-words --cached
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate=full --all
   who = shortlog -s -s-
+	sla = log --oneline --decorate --graph --all
 [push]
   default = upstream
 [merge]
   tool = vimdiff
 [diff]
   tool = vimdiff
+[url "git@github.com:"]
+	insteadOf = https://github.com/
