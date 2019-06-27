@@ -9,6 +9,8 @@ else
 fi
 
 #Global conf for ssh
+mkdir -p $HOME/.ssh
+
 if grep -xqFe "Host *" $HOME/.ssh/config
   then
     echo "~/.ssh/config general section already present, leaving untouched"
@@ -23,3 +25,4 @@ ln -sf $BASEPATH/powerline-config.json $HOME/.config/powerline/config.json
 ln -sf $BASEPATH/gemrc $HOME/.gemrc
 ln -sf $BASEPATH/gitconfig $HOME/.gitconfig
 ln -sf $BASEPATH/gitignore $HOME/.gitignore
+ln -sf $BASEPATH/ackrc $HOME/.ackrc
